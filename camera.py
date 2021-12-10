@@ -12,9 +12,13 @@ camera.start_preview(alpha=128)
 output = strftime("/home/pi/allseeingpi/image-%d-%m %H:%M.png", gmtime())
 input()
 def next_overlay():
-    print("Next overlay")
-
+    global overlay
+    overlay = next(all_overlays)
+    preview_overlay(camera, overlay)
+    
 def take_picture():
     camera.capture(output)
     camera.stop_preview()
+    remove_overlays(camera)
+    output_overlay(output, overlay)
 
