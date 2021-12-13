@@ -22,3 +22,4 @@ def take_picture():
     remove_overlays(camera)
     output_overlay(output, overlay)
 
+Fix non defined line/errors
